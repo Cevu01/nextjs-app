@@ -7,7 +7,7 @@ function CabinCard({ cabin }) {
 
   return (
     <div className="flex border-primary-800 border">
-      <div className="relative  flex-1">
+      <div className="relative flex-1">
         <Image
           src={image}
           fill
