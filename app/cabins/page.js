@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import CabinList from "../_components/CabinList";
 import Spinner from "../_components/Spinner";
 
+export const revalidate = 15; // ovde mora biti broj a ne varijabla
+
 export const metadata = {
   title: "Cabins",
 };
