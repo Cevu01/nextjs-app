@@ -17,7 +17,6 @@ function TextExpander({ children }) {
       >
         {isExpanded ? "Show less" : "Show more"}
       </button>
-      <Logo />
     </span>
   );
 }

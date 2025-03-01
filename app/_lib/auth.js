@@ -8,6 +8,11 @@ const authConfig = {
       clientSecret: process.env.AUTH_GOOGLE_SECRET,
     }),
   ],
+  callbacks: {
+    authorized({ auth, request }) {
+      return !!auth?.user; // ako ima usera onda je ovo true, ako ne onda je false, pa zbog false ne mozemo da pristupimo /account iz middleware.js
+    },
+  },
 };
 
 export const {
