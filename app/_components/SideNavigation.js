@@ -48,6 +48,7 @@ function SideNavigation() {
         ))}
 
         <li className="mt-auto">
+          {/* server actions rade i kada je ovo client komponenta, wow*/}
           <SignOutButton />
         </li>
       </ul>
