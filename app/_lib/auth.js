@@ -13,9 +13,15 @@ const authConfig = {
       return !!auth?.user; // ako ima usera onda je ovo true, ako ne onda je false, pa zbog false ne mozemo da pristupimo /account iz middleware.js
     },
   },
+  //ovako navigiramo korisnika na /login stranicu kada on pokusa da klikne protected rutu
+  pages: {
+    signIn: "/login",
+  },
 };
 
 export const {
   auth,
+  signIn,
+  signOut,
   handlers: { GET, POST },
 } = NextAuth(authConfig);
