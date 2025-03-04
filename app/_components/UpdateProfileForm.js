@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import { updateGuest } from "../_lib/actions";
+import { useFormStatus } from "react-dom";
+import Spinner from "./Spinner";
 
 function UpdateProfileForm({ guest, children }) {
   const [count, setCount] = useState();
@@ -55,11 +57,22 @@ function UpdateProfileForm({ guest, children }) {
       </div>
 
       <div className="flex justify-end items-center gap-6">
-        <button className="bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300">
-          Update profile
-        </button>
+        <Button />
       </div>
     </form>
+  );
+}
+
+//Posto je ovo client komponenta onda mozemo ovde da napisemo Button, da je server onda bi moraili da exportujemo Button u poseban file i stavimo "use client" u taj fajl, zato sto je useFormStatus() react-dom hook
+function Button() {
+  const status = useFormStatus();
+  return (
+    <button
+      disabled={status.pending}
+      className="bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300"
+    >
+      {status.pending ? "Updating..." : "Update profile"}
+    </button>
   );
 }
 
